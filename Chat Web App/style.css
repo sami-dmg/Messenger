@@ -1,0 +1,78 @@
+/* CSS Variables for Light Mode */
+:root {
+  --primary-bg: #f3f4f6;   /* bg-gray-100 */
+  --primary-text: #1f2937; /* text-gray-900 */
+  --received-bg: #e5e7eb;  /* bg-gray-200 */
+  --received-text: #000000;
+}
+
+/* CSS Variables for Dark Mode */
+[data-theme="dark"] {
+  --primary-bg: #1f2937;   /* bg-gray-900 */
+  --primary-text: #f3f4f6; /* text-gray-100 */
+  --received-bg: #374151;  /* bg-gray-700 */
+  --received-text: #ffffff;
+}
+
+/* Tailwind base variable support */
+@layer base {
+  body {
+    background-color: var(--primary-bg);
+    color: var(--primary-text);
+  }
+
+  .bg-primary-bg {
+    background-color: var(--primary-bg);
+  }
+
+  .text-primary-text {
+    color: var(--primary-text);
+  }
+}
+
+/* Common Styles */
+.btn-primary {
+  background-color: #3b82f6;
+  color: white;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  transition: background 0.3s;
+}
+
+.btn-primary:hover {
+  background-color: #2563eb;
+}
+
+#messages {
+  display: flex;
+  flex-direction: column;
+}
+
+.message {
+  max-width: 80%;
+  margin-bottom: 0.5rem;
+  padding: 0.75rem 1rem;
+  border-radius: 1rem;
+  word-wrap: break-word;
+  line-height: 1.4;
+  transition: all 0.2s ease-in-out;
+  animation: fadeIn 0.2s ease-in;
+}
+
+.message.sent {
+  align-self: flex-end;
+  background-color: #3b82f6;
+  color: white;
+}
+
+.message.received {
+  align-self: flex-start;
+  background-color: var(--received-bg);
+  color: var(--received-text);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
